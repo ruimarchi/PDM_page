@@ -1,0 +1,480 @@
+:root {
+  --bg-primary: #07131c;
+  --bg-secondary: #0f2430;
+  --bg-surface: rgba(10, 23, 32, 0.72);
+  --card-bg: #f3f7fa;
+  --card-alt: #ffffff;
+  --text-primary: #e9f4fb;
+  --text-secondary: #a8c2d2;
+  --text-dark: #15303f;
+  --accent: #15c5f8;
+  --accent-strong: #00e4ff;
+  --border-soft: rgba(123, 178, 204, 0.18);
+  --shadow-lg: 0 30px 60px rgba(2, 13, 20, 0.35);
+  --shadow-md: 0 18px 40px rgba(5, 17, 25, 0.18);
+  --radius-xl: 28px;
+  --radius-lg: 20px;
+  --radius-md: 16px;
+  --container: 1180px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Manrope", sans-serif;
+  color: var(--text-primary);
+  background:
+    radial-gradient(circle at top left, rgba(21, 197, 248, 0.18), transparent 28%),
+    radial-gradient(circle at 85% 15%, rgba(0, 228, 255, 0.12), transparent 22%),
+    linear-gradient(160deg, #041018 0%, #07131c 45%, #102530 100%);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.page-shell {
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.container {
+  width: min(calc(100% - 2rem), var(--container));
+  margin: 0 auto;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  backdrop-filter: blur(18px);
+  background: rgba(6, 18, 27, 0.72);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 0;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 700;
+}
+
+.brand-mark {
+  display: inline-grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  color: #07131c;
+  background: linear-gradient(135deg, var(--accent-strong), var(--accent));
+  box-shadow: 0 12px 28px rgba(21, 197, 248, 0.35);
+}
+
+.brand-text {
+  letter-spacing: 0.04em;
+}
+
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 1.25rem;
+  color: var(--text-secondary);
+  font-size: 0.96rem;
+}
+
+.site-nav a:hover,
+.site-nav a:focus-visible {
+  color: var(--text-primary);
+}
+
+.hero-section {
+  padding: 6rem 0 4rem;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+.eyebrow,
+.section-tag,
+.panel-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--accent-strong);
+}
+
+.hero-copy h1,
+.section-heading h2,
+.cta-card h2 {
+  margin: 0.65rem 0 1rem;
+  font-family: "Space Grotesk", sans-serif;
+  line-height: 1.02;
+}
+
+.hero-copy h1 {
+  font-size: clamp(2.8rem, 8vw, 5.4rem);
+}
+
+.hero-subtitle {
+  margin: 0 0 1rem;
+  font-size: clamp(1.15rem, 2vw, 1.45rem);
+  color: #d3e8f4;
+  max-width: 38rem;
+}
+
+.hero-text,
+.section-heading p,
+.feature-card p,
+.info-card p,
+.benefit-item p,
+.cta-card p,
+.solution-card li {
+  color: var(--text-secondary);
+  line-height: 1.75;
+  margin: 0;
+}
+
+.hero-actions,
+.cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 0.9rem 1.4rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  font-weight: 700;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.button:hover,
+.button:focus-visible {
+  transform: translateY(-2px);
+}
+
+.button-primary {
+  color: #05121b;
+  background: linear-gradient(135deg, var(--accent-strong), var(--accent));
+  box-shadow: 0 14px 34px rgba(0, 228, 255, 0.25);
+}
+
+.button-secondary {
+  border-color: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.hero-panel-card,
+.solution-card,
+.cta-card {
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-xl);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02)),
+    var(--bg-surface);
+  box-shadow: var(--shadow-lg);
+}
+
+.hero-panel-card {
+  padding: 2rem;
+}
+
+.panel-metrics {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.2rem;
+}
+
+.panel-metrics article {
+  padding: 1.2rem;
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.panel-metrics strong {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-size: 1.8rem;
+  font-family: "Space Grotesk", sans-serif;
+}
+
+.panel-metrics span {
+  color: var(--text-secondary);
+}
+
+.section {
+  padding: 2rem 0 5rem;
+}
+
+.section-heading {
+  max-width: 52rem;
+  margin: 0 auto 2rem;
+  text-align: center;
+}
+
+.section-heading h2 {
+  font-size: clamp(2rem, 4vw, 3.4rem);
+}
+
+.align-left {
+  margin-left: 0;
+  text-align: left;
+}
+
+.risk-grid,
+.features-grid,
+.screens-grid,
+.audience-grid {
+  display: grid;
+  gap: 1.4rem;
+}
+
+.risk-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.info-card,
+.feature-card,
+.screen-card,
+.audience-card,
+.benefit-item {
+  border-radius: var(--radius-lg);
+  background: linear-gradient(180deg, var(--card-alt), var(--card-bg));
+  color: var(--text-dark);
+  box-shadow: var(--shadow-md);
+}
+
+.info-card,
+.feature-card {
+  padding: 1.5rem;
+}
+
+.info-card h3,
+.feature-card h3,
+.screen-card h3 {
+  margin: 0 0 0.65rem;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.2rem;
+}
+
+.solution-grid,
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.6rem;
+  align-items: start;
+}
+
+.solution-card {
+  padding: 2rem;
+}
+
+.feature-checklist {
+  display: grid;
+  gap: 1rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.feature-checklist li {
+  position: relative;
+  padding-left: 1.6rem;
+}
+
+.feature-checklist li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.75rem;
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent-strong), var(--accent));
+  box-shadow: 0 0 0 6px rgba(21, 197, 248, 0.12);
+}
+
+.features-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.formats-section {
+  position: relative;
+}
+
+.format-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  justify-content: center;
+}
+
+.format-cloud span {
+  padding: 0.8rem 1.05rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.05);
+  color: #d9edf7;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.screens-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.screen-card {
+  overflow: hidden;
+}
+
+.screen-card img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  background:
+    linear-gradient(135deg, rgba(18, 46, 61, 0.9), rgba(10, 110, 143, 0.75)),
+    linear-gradient(180deg, #203847, #0f1820);
+}
+
+.screen-card h3 {
+  padding: 1.15rem 1.25rem 1.35rem;
+  margin: 0;
+}
+
+.benefit-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.benefit-item {
+  padding: 1.3rem 1.5rem;
+}
+
+.benefit-item strong {
+  display: block;
+  margin-bottom: 0.45rem;
+  font-size: 1.05rem;
+  font-family: "Space Grotesk", sans-serif;
+}
+
+.audience-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.audience-card {
+  padding: 1.4rem;
+  text-align: center;
+  font-weight: 700;
+}
+
+.cta-section {
+  padding-bottom: 6rem;
+}
+
+.cta-card {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1.5rem;
+  align-items: center;
+  padding: 2rem;
+}
+
+@media (max-width: 1080px) {
+  .hero-grid,
+  .solution-grid,
+  .benefits-grid,
+  .cta-card,
+  .features-grid,
+  .risk-grid,
+  .audience-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .cta-card {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 780px) {
+  .site-header {
+    position: static;
+  }
+
+  .header-inner,
+  .site-nav,
+  .hero-actions,
+  .cta-actions {
+    justify-content: center;
+  }
+
+  .hero-grid,
+  .solution-grid,
+  .benefits-grid,
+  .risk-grid,
+  .features-grid,
+  .screens-grid,
+  .audience-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-section {
+    padding-top: 3.5rem;
+  }
+
+  .hero-copy,
+  .section-heading,
+  .align-left {
+    text-align: left;
+  }
+
+  .section-heading {
+    margin-left: 0;
+  }
+
+  .hero-actions,
+  .cta-actions {
+    align-items: stretch;
+  }
+
+  .button {
+    width: 100%;
+  }
+}
