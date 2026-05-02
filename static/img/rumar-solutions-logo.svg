@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 720" role="img" aria-labelledby="title desc">
+  <title id="title">Rumar Solutions</title>
+  <desc id="desc">Logo da Rumar Solutions com letra R estilizada, circuitos e engrenagem.</desc>
+  <defs>
+    <linearGradient id="navyFade" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b2b73"/>
+      <stop offset="100%" stop-color="#05205d"/>
+    </linearGradient>
+  </defs>
+
+  <g transform="translate(90 40)">
+    <path fill="url(#navyFade)" d="M326 52h175c47 0 84 13 111 38s41 59 41 101c0 35-10 66-29 92-20 26-47 44-82 54l126 181H550L441 354h-72v164H249V52Zm120 96v111h58c20 0 36-5 47-16 11-10 16-24 16-40s-5-30-16-40c-11-10-27-15-47-15h-58Z"/>
+    <path fill="#2d2d2d" d="M300 266c-20 12-35 24-44 35l-42-11-20 35 31 31c-2 11-3 21-3 30 0 15 2 30 7 46l-28 31 21 35 40-10c12 12 27 22 44 30l7 42h40l8-42c17-5 32-14 45-25l-28-41c-17 13-37 20-60 20-54 0-98-44-98-98 0-29 13-55 33-73l-33-35Z"/>
+    <rect x="171" y="173" width="28" height="28" fill="#0b2b73"/>
+    <rect x="208" y="131" width="28" height="28" fill="#1396c5"/>
+    <rect x="208" y="215" width="28" height="28" fill="#1396c5"/>
+    <rect x="251" y="165" width="36" height="36" fill="#17a7d5"/>
+    <path fill="none" stroke="#169fcf" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" d="M285 183h194"/>
+    <path fill="none" stroke="#169fcf" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" d="M285 281h47l44-35h103"/>
+    <circle cx="188" cy="281" r="16" fill="#fff" stroke="#0b2b73" stroke-width="10"/>
+    <circle cx="479" cy="183" r="16" fill="#fff" stroke="#169fcf" stroke-width="10"/>
+    <circle cx="479" cy="246" r="16" fill="#fff" stroke="#169fcf" stroke-width="10"/>
+    <text x="160" y="622" fill="#0b2b73" font-family="Manrope, Arial, sans-serif" font-size="118" font-weight="700">Rumar</text>
+    <text x="160" y="707" fill="#2d2d2d" font-family="Manrope, Arial, sans-serif" font-size="108" font-weight="500">Solutions</text>
+  </g>
+</svg>
