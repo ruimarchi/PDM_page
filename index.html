@@ -45,10 +45,6 @@
               criada para equipes que precisam reduzir riscos operacionais e manter rastreabilidade total.
             </p>
 
-            <div class="hero-actions">
-              <a class="button button-primary" href="#lead-form">Solicitar demonstração</a>
-              <a class="button button-secondary" href="https://pdm.rumarsolutions.com.br" target="_blank" rel="noopener noreferrer">Acessar ambiente demo</a>
-            </div>
           </div>
 
           <div class="hero-panel">
@@ -256,6 +252,7 @@
           </div>
           <div class="cta-actions">
             <a class="button button-primary" href="#lead-form">Solicitar acesso à demo</a>
+            <button class="button button-secondary" type="button" data-video-open>Ver vídeo de apresentação</button>
             <a class="button button-secondary" href="https://pdm.rumarsolutions.com.br" target="_blank" rel="noopener noreferrer">Acessar ambiente demo</a>
           </div>
         </div>
@@ -303,6 +300,7 @@
 
               <div class="lead-actions">
                 <button class="button button-primary" type="submit">Abrir WhatsApp com meus dados</button>
+                <button class="button button-secondary" type="button" data-video-open>Ver vídeo de apresentação</button>
                 <a class="button button-secondary" href="https://pdm.rumarsolutions.com.br" target="_blank" rel="noopener noreferrer">Acessar ambiente demo</a>
               </div>
             </form>
@@ -311,8 +309,52 @@
       </section>
     </main>
   </div>
+  <div class="video-modal" data-video-modal hidden>
+    <div class="video-modal-backdrop" data-video-close></div>
+    <div class="video-modal-dialog" role="dialog" aria-modal="true" aria-label="Vídeo de apresentação">
+      <button class="video-modal-close" type="button" aria-label="Fechar vídeo" data-video-close>&times;</button>
+      <video class="video-player" data-video-player controls preload="metadata">
+        <source src="video_rumar_marca_dagua.mp4" type="video/mp4">
+        Seu navegador não suporta vídeo HTML5.
+      </video>
+    </div>
+  </div>
   <script>
+    const videoModal = document.querySelector("[data-video-modal]");
+    const videoPlayer = document.querySelector("[data-video-player]");
+    const videoOpenButtons = document.querySelectorAll("[data-video-open]");
+    const videoCloseButtons = document.querySelectorAll("[data-video-close]");
     const whatsappForms = document.querySelectorAll("[data-whatsapp-form]");
+
+    const closeVideoModal = () => {
+      videoPlayer.pause();
+      videoPlayer.currentTime = 0;
+      videoModal.hidden = true;
+      document.body.classList.remove("modal-open");
+    };
+
+    const openVideoModal = () => {
+      videoModal.hidden = false;
+      document.body.classList.add("modal-open");
+      videoPlayer.currentTime = 0;
+      videoPlayer.play();
+    };
+
+    videoOpenButtons.forEach((button) => {
+      button.addEventListener("click", openVideoModal);
+    });
+
+    videoCloseButtons.forEach((button) => {
+      button.addEventListener("click", closeVideoModal);
+    });
+
+    videoPlayer.addEventListener("ended", closeVideoModal);
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && !videoModal.hidden) {
+        closeVideoModal();
+      }
+    });
 
     whatsappForms.forEach((form) => {
       form.addEventListener("submit", (event) => {

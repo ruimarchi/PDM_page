@@ -36,6 +36,10 @@ body {
     linear-gradient(160deg, #041018 0%, #07131c 45%, #102530 100%);
 }
 
+body.modal-open {
+  overflow: hidden;
+}
+
 img {
   display: block;
   max-width: 100%;
@@ -211,6 +215,8 @@ a {
   border: 1px solid transparent;
   font-weight: 700;
   transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  cursor: pointer;
+  font: inherit;
 }
 
 .button:hover,
@@ -294,6 +300,79 @@ a {
   flex-wrap: wrap;
   gap: 1rem;
   margin-top: 1.5rem;
+}
+
+.video-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  padding: 0.75rem;
+}
+
+.video-modal[hidden] {
+  display: none;
+}
+
+.video-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(2, 10, 16, 0.82);
+  backdrop-filter: blur(8px);
+}
+
+.video-modal-dialog {
+  position: relative;
+  z-index: 1;
+  width: min(1280px, 96vw);
+  padding: 1rem;
+  border-radius: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: #08151d;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+}
+
+.video-modal-close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.75rem;
+  z-index: 2;
+  width: 42px;
+  height: 42px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--text-primary);
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.video-player {
+  display: block;
+  width: 100%;
+  height: min(82vh, 720px);
+  max-height: 82vh;
+  border-radius: 18px;
+  background: #000;
+}
+
+@media (max-width: 780px) {
+  .video-modal {
+    padding: 0.5rem;
+  }
+
+  .video-modal-dialog {
+    width: 100%;
+    padding: 0.75rem;
+    border-radius: 20px;
+  }
+
+  .video-player {
+    height: auto;
+    max-height: 72vh;
+  }
 }
 
 .hero-panel-card,
