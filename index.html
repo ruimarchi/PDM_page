@@ -46,7 +46,7 @@
             </p>
 
             <div class="hero-actions">
-              <a class="button button-primary" href="mailto:contato@rumarsolutions.com.br?subject=Solicita%C3%A7%C3%A3o%20de%20demonstra%C3%A7%C3%A3o%20-%20RM%20PDM%20Lite">Solicitar demonstração</a>
+              <a class="button button-primary" href="#lead-form">Solicitar demonstração</a>
               <a class="button button-secondary" href="https://pdm.rumarsolutions.com.br" target="_blank" rel="noopener noreferrer">Acessar ambiente demo</a>
             </div>
           </div>
@@ -69,6 +69,55 @@
                 </article>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section lead-section" id="lead-form">
+        <div class="container">
+          <div class="lead-card">
+            <div class="section-heading align-left">
+              <span class="section-tag">Contato</span>
+              <h2>Preencha seus dados e continue a conversa no WhatsApp</h2>
+              <p>
+                Ao clicar em enviar, o WhatsApp abre com uma mensagem pronta para a equipe da Rumar Solutions,
+                incluindo as informações do seu contato.
+              </p>
+            </div>
+
+            <form class="lead-form" data-whatsapp-form data-whatsapp-number="5511924850084">
+              <div class="form-grid">
+                <label class="form-field">
+                  <span>Nome da Empresa</span>
+                  <input type="text" name="empresa" autocomplete="organization" required>
+                </label>
+
+                <label class="form-field">
+                  <span>Ramo de Atuação</span>
+                  <input type="text" name="ramo" required>
+                </label>
+
+                <label class="form-field">
+                  <span>Nome do Contato</span>
+                  <input type="text" name="contato" autocomplete="name" required>
+                </label>
+
+                <label class="form-field">
+                  <span>Cargo</span>
+                  <input type="text" name="cargo" autocomplete="organization-title" required>
+                </label>
+
+                <label class="form-field form-field-full">
+                  <span>Celular de Contato</span>
+                  <input type="tel" name="celular" autocomplete="tel" placeholder="(11) 99999-9999" required>
+                </label>
+              </div>
+
+              <div class="lead-actions">
+                <button class="button button-primary" type="submit">Abrir WhatsApp com meus dados</button>
+                <a class="button button-secondary" href="https://pdm.rumarsolutions.com.br" target="_blank" rel="noopener noreferrer">Acessar ambiente demo</a>
+              </div>
+            </form>
           </div>
         </div>
       </section>
@@ -255,12 +304,36 @@
             <p>Converse com a equipe da Rumar Solutions para conhecer o fluxo de controle documental técnico.</p>
           </div>
           <div class="cta-actions">
-            <a class="button button-primary" href="mailto:contato@rumarsolutions.com.br?subject=Solicita%C3%A7%C3%A3o%20de%20acesso%20%C3%A0%20demo%20-%20RM%20PDM%20Lite">Solicitar acesso à demo</a>
+            <a class="button button-primary" href="#lead-form">Solicitar acesso à demo</a>
             <a class="button button-secondary" href="https://pdm.rumarsolutions.com.br" target="_blank" rel="noopener noreferrer">Acessar ambiente demo</a>
           </div>
         </div>
       </section>
     </main>
   </div>
+  <script>
+    const whatsappForms = document.querySelectorAll("[data-whatsapp-form]");
+
+    whatsappForms.forEach((form) => {
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        const formData = new FormData(form);
+        const number = form.dataset.whatsappNumber;
+        const message = [
+          "Olá, gostaria de agendar uma demonstração do RM PDM Lite para minha empresa.",
+          "",
+          "Nome da Empresa: " + formData.get("empresa"),
+          "Ramo de Atuação: " + formData.get("ramo"),
+          "Nome do Contato: " + formData.get("contato"),
+          "Cargo: " + formData.get("cargo"),
+          "Celular de Contato: " + formData.get("celular")
+        ].join("\n");
+
+        const whatsappUrl = "https://wa.me/" + number + "?text=" + encodeURIComponent(message);
+        window.open(whatsappUrl, "_blank", "noopener");
+      });
+    });
+  </script>
 </body>
 </html>
